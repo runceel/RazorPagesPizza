@@ -19,9 +19,15 @@ public class PizzaModel : PageModel
         _pizzaService = pizzaService;
     }
 
-    public void OnGet()
+    public async Task OnGetAsync()
     {
-        Pizzas = _pizzaService.GetAll();
+        var result = new List<Pizza>();
+        await foreach (var pizza in _pizzaService.GetAllAsync())
+        {
+            result.Add(pizza);
+        }
+
+        Pizzas = result;
     }
 
     public string GlutenFreeText(Pizza pizza)
@@ -29,19 +35,20 @@ public class PizzaModel : PageModel
         return pizza.IsGlutenFree ? "Gluten Free" : "Not Gluten Free";
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
-        _pizzaService.Add(NewPizza);
+
+        await _pizzaService.AddAsync(NewPizza);
         return RedirectToAction("Get");
     }
 
-    public IActionResult OnPostDelete(int id)
+    public async Task<IActionResult> OnPostDelete(string id)
     {
-        _pizzaService.Delete(id);
+        await _pizzaService.DeleteAsync(id);
         return RedirectToAction("Get");
     }
 }

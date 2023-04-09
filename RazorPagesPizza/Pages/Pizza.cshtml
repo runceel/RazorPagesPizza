@@ -29,6 +29,7 @@
             <th scope="col">Price</th>
             <th scope="col">Size</th>
             <th scope="col">Gluten Free</th>
+            <th scope="col">Description</th>
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -39,6 +40,7 @@
             <td>@($"{pizza.Price:C}")</td>
             <td>@pizza.Size</td>
             <td>@Model.GlutenFreeText(pizza)</td>
+            <td>@(pizza.Description ?? "Generating...")</td>
             <td>
                 <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
                     <button class="btn btn-danger">Delete</button>

@@ -1,44 +1,63 @@
-﻿using RazorPagesPizza.Models;
+﻿using Azure.Storage.Queues;
+using Microsoft.Azure.Cosmos;
+using RazorPagesPizza.Models;
+using System.Net;
 
 namespace RazorPagesPizza.Services;
 public class PizzaService
 {
-    private List<Pizza> Pizzas { get; }
-    private int nextId = 3;
-    public PizzaService()
+    private readonly CosmosClient _cosmosClient;
+    private readonly QueueServiceClient _queueServiceClient;
+
+    public PizzaService(CosmosClient cosmosClient, QueueServiceClient queueServiceClient)
     {
-        Pizzas = new List<Pizza>
-                {
-                    new Pizza { Id = 1, Name = "Classic Italian", Price=20.00M, Size=PizzaSize.Large, IsGlutenFree = false },
-                    new Pizza { Id = 2, Name = "Veggie", Price=15.00M, Size=PizzaSize.Small, IsGlutenFree = true }
-                };
+        _cosmosClient = cosmosClient;
+        _queueServiceClient = queueServiceClient;
     }
 
-    public List<Pizza> GetAll() => Pizzas;
-
-    public Pizza? Get(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
-
-    public void Add(Pizza pizza)
+    public async IAsyncEnumerable<Pizza> GetAllAsync()
     {
-        pizza.Id = nextId++;
-        Pizzas.Add(pizza);
+        using var feed = GetContainer().GetItemQueryIterator<Pizza>(
+            new QueryDefinition("SELECT * FROM Pizza"),
+            requestOptions: new QueryRequestOptions
+            {
+                PartitionKey = new PartitionKey(nameof(Pizza)),
+            });
+        while (feed.HasMoreResults)
+        {
+            var response = await feed.ReadNextAsync();
+
+            foreach (var item in response)
+            {
+                yield return item;
+            }
+        }
     }
 
-    public void Delete(int id)
+    public async ValueTask<Pizza?> GetAsync(string id)
     {
-        var pizza = Get(id);
-        if (pizza is null)
-            return;
-
-        Pizzas.Remove(pizza);
+        var item = await GetContainer().ReadItemAsync<Pizza>(
+            id,
+            new PartitionKey(nameof(Pizza)));
+        return item.StatusCode == HttpStatusCode.NotFound ? null : item.Resource;
     }
 
-    public void Update(Pizza pizza)
+    public async ValueTask AddAsync(Pizza pizza)
     {
-        var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
-        if (index == -1)
-            return;
-
-        Pizzas[index] = pizza;
+        pizza.Id = Guid.NewGuid().ToString();
+        await GetContainer().CreateItemAsync(pizza, new PartitionKey(nameof(Pizza)));
     }
+
+    public async ValueTask DeleteAsync(string id) => 
+        await GetContainer().DeleteItemAsync<Pizza>(id, new PartitionKey(nameof(Pizza)));
+
+    public async ValueTask UpdateAsync(Pizza pizza)
+    {
+        var item = await GetAsync(pizza.Id);
+        if (item is null) return;
+
+        await GetContainer().ReplaceItemAsync(pizza, pizza.Id, new PartitionKey(nameof(Pizza)));
+    }
+
+    private Container GetContainer() => _cosmosClient.GetContainer("RazorPagesPizzaDb", nameof(Pizza));
 }
