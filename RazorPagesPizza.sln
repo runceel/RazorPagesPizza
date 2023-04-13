@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Core", "Raz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Implements", "RazorPagesPizza.Implements\RazorPagesPizza.Implements.csproj", "{59E05467-4AE5-4F02-8B48-D677325BA4A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Functions", "RazorPagesPizza.Functions\RazorPagesPizza.Functions.csproj", "{AD9045C6-D329-4053-8B10-3BFA0CB80969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
