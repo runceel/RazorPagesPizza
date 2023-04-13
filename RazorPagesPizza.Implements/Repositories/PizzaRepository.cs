@@ -1,18 +1,18 @@
-﻿using Azure.Storage.Queues;
-using Microsoft.Azure.Cosmos;
+﻿using Microsoft.Azure.Cosmos;
 using RazorPagesPizza.Models;
+using RazorPagesPizza.Services;
 using System.Net;
 
-namespace RazorPagesPizza.Services;
-public class PizzaService : IPizzaService
-{
-    private readonly CosmosClient _cosmosClient;
-    private readonly QueueServiceClient _queueServiceClient;
+namespace RazorPagesPizza.Implements.Repositories;
 
-    public PizzaService(CosmosClient cosmosClient, QueueServiceClient queueServiceClient)
+public class PizzaRepository : IPizzaRepository
+{ 
+    private static readonly string s_pizzasContainerName = "RazorPagesPizzaDb";
+    private readonly CosmosClient _cosmosClient;
+
+    public PizzaRepository(CosmosClient cosmosClient)
     {
         _cosmosClient = cosmosClient;
-        _queueServiceClient = queueServiceClient;
     }
 
     public async IAsyncEnumerable<Pizza> GetAllAsync()
@@ -59,5 +59,5 @@ public class PizzaService : IPizzaService
         await GetContainer().ReplaceItemAsync(pizza, pizza.Id, new PartitionKey(nameof(Pizza)));
     }
 
-    private Container GetContainer() => _cosmosClient.GetContainer("RazorPagesPizzaDb", nameof(Pizza));
+    private Container GetContainer() => _cosmosClient.GetContainer(s_pizzasContainerName, nameof(Pizza));
 }

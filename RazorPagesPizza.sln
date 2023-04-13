@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza", "RazorPagesPizza\RazorPagesPizza.csproj", "{011400E8-CD8B-4AFC-92BD-23420E9923E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza", "RazorPagesPizza\RazorPagesPizza.csproj", "{011400E8-CD8B-4AFC-92BD-23420E9923E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Core", "RazorPagesPizza.Core\RazorPagesPizza.Core.csproj", "{AC4D6719-09A3-4ACE-A11D-31C4E22BAB53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Implements", "RazorPagesPizza.Implements\RazorPagesPizza.Implements.csproj", "{59E05467-4AE5-4F02-8B48-D677325BA4A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{011400E8-CD8B-4AFC-92BD-23420E9923E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011400E8-CD8B-4AFC-92BD-23420E9923E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011400E8-CD8B-4AFC-92BD-23420E9923E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4D6719-09A3-4ACE-A11D-31C4E22BAB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4D6719-09A3-4ACE-A11D-31C4E22BAB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4D6719-09A3-4ACE-A11D-31C4E22BAB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4D6719-09A3-4ACE-A11D-31C4E22BAB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

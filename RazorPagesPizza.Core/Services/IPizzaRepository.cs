@@ -1,6 +1,6 @@
 ﻿using RazorPagesPizza.Models;
 
-namespace RazorPagesPizza.Repositories;
+namespace RazorPagesPizza.Services;
 
 public interface IPizzaRepository
 {

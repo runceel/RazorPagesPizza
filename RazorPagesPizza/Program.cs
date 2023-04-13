@@ -1,34 +1,12 @@
-using Microsoft.Extensions.Azure;
-using RazorPagesPizza.Services;
-using Microsoft.Azure.Cosmos;
-using Azure.Core;
-using RazorPagesPizza;
-using Azure.Identity;
-using RazorPagesPizza.Models;
+using RazorPagesPizza.Implements;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-builder.Services.AddSingleton<PizzaService>();
-
-builder.Services.AddAzureClients(clientBuilder =>
-{
-    clientBuilder.AddQueueServiceClient(builder.Configuration.GetValue<Uri>("StorageUrl"));
-    clientBuilder.AddClient((CosmosOptions options, TokenCredential credential) =>
-    {
-        return new CosmosClient(options.AccountEndpoint, credential, new CosmosClientOptions
-        {
-            SerializerOptions = new()
-            {
-                PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase,
-            },
-        });
-    }).ConfigureOptions(builder.Configuration.GetSection(nameof(CosmosOptions)));
-
-    clientBuilder.UseCredential(new DefaultAzureCredential());
-});
+builder.Services
+    .AddApplicationServices(builder.Configuration)
+    .AddRepositories(builder.Configuration);
 
 var app = builder.Build();
 

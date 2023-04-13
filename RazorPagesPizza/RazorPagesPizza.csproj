@@ -6,12 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>da88c022-35f5-42c6-9d22-7e6e222d6edc</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.8.2" />
-    <PackageReference Include="Azure.Storage.Queues" Version="12.13.1" />
-    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.32.3" />
-    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.6.3" />
+    <ProjectReference Include="..\RazorPagesPizza.Implements\RazorPagesPizza.Implements.csproj" />
   </ItemGroup>
 
 </Project>
