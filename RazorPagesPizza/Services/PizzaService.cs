@@ -4,7 +4,7 @@ using RazorPagesPizza.Models;
 using System.Net;
 
 namespace RazorPagesPizza.Services;
-public class PizzaService
+public class PizzaService : IPizzaService
 {
     private readonly CosmosClient _cosmosClient;
     private readonly QueueServiceClient _queueServiceClient;
@@ -48,7 +48,7 @@ public class PizzaService
         await GetContainer().CreateItemAsync(pizza, new PartitionKey(nameof(Pizza)));
     }
 
-    public async ValueTask DeleteAsync(string id) => 
+    public async ValueTask DeleteAsync(string id) =>
         await GetContainer().DeleteItemAsync<Pizza>(id, new PartitionKey(nameof(Pizza)));
 
     public async ValueTask UpdateAsync(Pizza pizza)
