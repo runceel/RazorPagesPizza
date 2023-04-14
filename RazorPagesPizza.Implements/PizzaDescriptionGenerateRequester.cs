@@ -1,16 +1,17 @@
 ﻿using Azure.Storage.Queues;
+using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Models;
-using RazorPagesPizza.Services;
+using RazorPagesPizza.Repositories;
 using System.Text.Json;
 
 namespace RazorPagesPizza.Implements.Repositories;
 
-public class PizzaDescriptionGenerator : IPizzaDescriptionGenerator
+public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateRequester
 {
     private static readonly string s_queueName = "generate-pizza-description";
     private readonly QueueServiceClient _queueServiceClient;
 
-    public PizzaDescriptionGenerator(QueueServiceClient queueServiceClient)
+    public PizzaDescriptionGenerateRequester(QueueServiceClient queueServiceClient)
     {
         _queueServiceClient = queueServiceClient;
     }

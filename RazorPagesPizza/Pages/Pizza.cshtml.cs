@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using RazorPagesPizza.Models;
 using RazorPagesPizza.Services;
@@ -7,14 +7,14 @@ namespace RazorPagesPizza.Pages;
 
 public class PizzaModel : PageModel
 {
-    private readonly PizzaService _pizzaService;
+    private readonly ManagePizzaInventoryService _pizzaService;
 
     public List<Pizza> Pizzas { get; private set; } = new();
 
     [BindProperty]
     public Pizza NewPizza { get; set; } = new();
 
-    public PizzaModel(PizzaService pizzaService)
+    public PizzaModel(ManagePizzaInventoryService pizzaService)
     {
         _pizzaService = pizzaService;
     }

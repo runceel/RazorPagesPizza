@@ -1,12 +1,13 @@
-﻿using RazorPagesPizza.Models;
+﻿using RazorPagesPizza.Core.Services;
+using RazorPagesPizza.Models;
 
 namespace RazorPagesPizza.Services;
-public class PizzaService : IPizzaService
+public class ManagePizzaInventoryService : IManagePizzaInventoryService
 {
     private readonly IPizzaRepository _pizzaRepository;
-    private readonly IPizzaDescriptionGenerator _pizzaDescriptionGenerator;
+    private readonly IPizzaDescriptionGenerateRequester _pizzaDescriptionGenerator;
 
-    public PizzaService(IPizzaRepository pizzaRepository, IPizzaDescriptionGenerator pizzaDescriptionGenerator)
+    public ManagePizzaInventoryService(IPizzaRepository pizzaRepository, IPizzaDescriptionGenerateRequester pizzaDescriptionGenerator)
     {
         _pizzaRepository = pizzaRepository;
         _pizzaDescriptionGenerator = pizzaDescriptionGenerator;

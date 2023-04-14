@@ -1,4 +1,4 @@
-using RazorPagesPizza.Implements;
+using RazorPagesPizza.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

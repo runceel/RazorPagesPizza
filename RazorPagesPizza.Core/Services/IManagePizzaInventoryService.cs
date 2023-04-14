@@ -1,7 +1,7 @@
 ﻿using RazorPagesPizza.Models;
 
-namespace RazorPagesPizza.Services;
-public interface IPizzaService
+namespace RazorPagesPizza.Core.Services;
+public interface IManagePizzaInventoryService
 {
     ValueTask AddAsync(Pizza pizza);
     ValueTask DeleteAsync(string id);

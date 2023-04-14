@@ -1,8 +1,9 @@
-﻿using RazorPagesPizza.Models;
-
-namespace RazorPagesPizza.Services;
+﻿namespace RazorPagesPizza.Core.Services;
 
 public interface IPizzaDescriptionGenerator
 {
-    ValueTask RequestToGeneratePizzaDescriptionAsync(Pizza pizza);
+    ValueTask<GenerateOutput> GenerateAsync(GenerateInput input);
 }
+
+public record GenerateInput(string PizzaName);
+public record GenerateOutput(string Description);

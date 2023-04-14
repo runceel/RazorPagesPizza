@@ -1,4 +1,4 @@
-﻿namespace RazorPagesPizza.Implements;
+﻿namespace RazorPagesPizza.Repositories.Options;
 
 public class CosmosOptions
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Azure.Cosmos;
+using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Models;
-using RazorPagesPizza.Services;
 using System.Net;
 
-namespace RazorPagesPizza.Implements.Repositories;
+namespace RazorPagesPizza.Repositories;
 
 public class PizzaRepository : IPizzaRepository
 { 
