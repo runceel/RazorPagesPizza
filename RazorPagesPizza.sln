@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Interfaces"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Repositories", "RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj", "{59E05467-4AE5-4F02-8B48-D677325BA4A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Functions", "RazorPagesPizza.Functions\RazorPagesPizza.Functions.csproj", "{AD9045C6-D329-4053-8B10-3BFA0CB80969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Services", "RazorPagesPizza.Services\RazorPagesPizza.Services.csproj", "{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Services", "RazorPagesPizza.Services\RazorPagesPizza.Services.csproj", "{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Functions", "RazorPagesPizza.Functions\RazorPagesPizza.Functions.csproj", "{6571A709-DAC5-48DF-A3C7-B8A086AF6384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E05467-4AE5-4F02-8B48-D677325BA4A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD9045C6-D329-4053-8B10-3BFA0CB80969}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6571A709-DAC5-48DF-A3C7-B8A086AF6384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6571A709-DAC5-48DF-A3C7-B8A086AF6384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6571A709-DAC5-48DF-A3C7-B8A086AF6384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6571A709-DAC5-48DF-A3C7-B8A086AF6384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
