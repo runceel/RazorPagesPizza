@@ -3,11 +3,8 @@ using Azure.Identity;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Azure;
 using RazorPagesPizza.Core.Services;
-<<<<<<< HEAD
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Domain.Services;
-=======
->>>>>>> 04eff41e986823ee2e3c579ae5da74ac2cce44d6
 using RazorPagesPizza.Implements.Repositories;
 using RazorPagesPizza.Repositories;
 using RazorPagesPizza.Repositories.Options;

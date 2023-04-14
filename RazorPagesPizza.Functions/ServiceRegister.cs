@@ -5,18 +5,11 @@ using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesPizza.Core.Services;
-<<<<<<< HEAD
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Domain.Services;
 using RazorPagesPizza.Implements.Repositories;
 using RazorPagesPizza.Repositories;
 using RazorPagesPizza.Repositories.Options;
-=======
-using RazorPagesPizza.Implements.Repositories;
-using RazorPagesPizza.Repositories;
-using RazorPagesPizza.Repositories.Options;
-using RazorPagesPizza.Services;
->>>>>>> 04eff41e986823ee2e3c579ae5da74ac2cce44d6
 
 namespace RazorPagesPizza.Functions;
 

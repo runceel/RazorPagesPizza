@@ -2,7 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-<<<<<<< HEAD
     <UserSecretsId>9d6517f7-ab8d-4889-8b68-c3b355e66c69</UserSecretsId>
     <LangVersion>11</LangVersion>
   </PropertyGroup>
@@ -20,11 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj" />
     <ProjectReference Include="..\RazorPagesPizza.Services\RazorPagesPizza.Domain.csproj" />
-=======
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
->>>>>>> 04eff41e986823ee2e3c579ae5da74ac2cce44d6
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

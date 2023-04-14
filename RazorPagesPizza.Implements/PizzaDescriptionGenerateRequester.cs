@@ -33,15 +33,11 @@ public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateReques
     }
 }
 
-<<<<<<< HEAD
 public class GeneratePizzaDescriptionRequest
 {
     public string PizzaId { get; set; } = "";
     public string PizzaName { get; set; } = "";
 }
-=======
-public record GeneratePizzaDescriptionRequest(string PizzaId, string PizzaName);
->>>>>>> 04eff41e986823ee2e3c579ae5da74ac2cce44d6
 
 public static class PizzaQueue
 {
