@@ -2,15 +2,13 @@
 using Azure.Identity;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Azure;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using RazorPagesPizza.Core.Services;
-using RazorPagesPizza.Implements;
 using RazorPagesPizza.Implements.Repositories;
+using RazorPagesPizza.Repositories;
 using RazorPagesPizza.Repositories.Options;
 using RazorPagesPizza.Services;
 
-namespace RazorPagesPizza.Repositories;
+namespace RazorPagesPizza;
 
 public static class ServiceRegister
 {
@@ -33,8 +31,7 @@ public static class ServiceRegister
         services.AddAzureClients(clientBuilder =>
         {
             // Queue
-            var queueOptions = configuration.GetRequiredSection(nameof(QueueOptions)).Get<QueueOptions>();
-            clientBuilder.AddQueueServiceClient(new Uri(queueOptions.StorageUrl));
+            clientBuilder.AddQueueServiceClient(configuration.GetSection("PizzaStorage"));
 
             // Cosmos DB
             clientBuilder.AddClient((CosmosOptions options, TokenCredential credential) =>
@@ -47,10 +44,6 @@ public static class ServiceRegister
                     },
                 });
             }).ConfigureOptions(configuration.GetSection(nameof(CosmosOptions)));
-
-            // OpenAI
-            var openAiOptions = configuration.GetSection(nameof(OpenAIOptions)).Get<OpenAIOptions>();
-            clientBuilder.AddOpenAIClient(new(openAiOptions.Endpoint), new(openAiOptions.Key));
 
             // credential
             clientBuilder.UseCredential(new DefaultAzureCredential());

@@ -8,7 +8,6 @@ namespace RazorPagesPizza.Implements.Repositories;
 
 public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateRequester
 {
-    private static readonly string s_queueName = "generate-pizza-description";
     private readonly QueueServiceClient _queueServiceClient;
 
     public PizzaDescriptionGenerateRequester(QueueServiceClient queueServiceClient)
@@ -24,7 +23,7 @@ public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateReques
             return;
         }
 
-        var queueClient = _queueServiceClient.GetQueueClient(s_queueName);
+        var queueClient = _queueServiceClient.GetQueueClient(PizzaQueue.Name);
         await queueClient.CreateIfNotExistsAsync();
         await queueClient.SendMessageAsync(
             JsonSerializer.Serialize(
@@ -34,3 +33,8 @@ public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateReques
 }
 
 public record GeneratePizzaDescriptionRequest(string PizzaId, string PizzaName);
+
+public static class PizzaQueue
+{
+    public const string Name = "generate-pizza-description";
+}

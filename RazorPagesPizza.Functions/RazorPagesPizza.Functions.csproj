@@ -1,24 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <UserSecretsId>84f30471-cd67-4751-9122-1e37096556ca</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
-    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.14.0" />
-    <PackageReference Include="Azure.Storage.Queues" Version="12.14.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.13.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Storage" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.9.0" />
-    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.6.3" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -28,8 +14,5 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
   </ItemGroup>
 </Project>
