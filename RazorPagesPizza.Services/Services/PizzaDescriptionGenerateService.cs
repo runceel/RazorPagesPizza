@@ -1,6 +1,7 @@
 ﻿using RazorPagesPizza.Core.Services;
+using RazorPagesPizza.Domain.Repositories;
 
-namespace RazorPagesPizza.Services;
+namespace RazorPagesPizza.Domain.Services;
 
 public class PizzaDescriptionGenerateService : IPizzaDescriptionGenerateService
 {

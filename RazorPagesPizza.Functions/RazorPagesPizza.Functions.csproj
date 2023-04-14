@@ -3,6 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <UserSecretsId>9d6517f7-ab8d-4889-8b68-c3b355e66c69</UserSecretsId>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
@@ -17,7 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj" />
-    <ProjectReference Include="..\RazorPagesPizza.Services\RazorPagesPizza.Services.csproj" />
+    <ProjectReference Include="..\RazorPagesPizza.Services\RazorPagesPizza.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

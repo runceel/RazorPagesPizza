@@ -1,5 +1,6 @@
 ﻿using Azure.Storage.Queues;
 using RazorPagesPizza.Core.Services;
+using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Models;
 using RazorPagesPizza.Repositories;
 using System.Text.Json;
@@ -27,12 +28,16 @@ public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateReques
         await queueClient.CreateIfNotExistsAsync();
         await queueClient.SendMessageAsync(
             JsonSerializer.Serialize(
-                new GeneratePizzaDescriptionRequest(pizza.Id, pizza.Name!), 
+                new GeneratePizzaDescriptionRequest { PizzaId = pizza.Id, PizzaName = pizza.Name! }, 
                 SourceGenerationContext.Default.GeneratePizzaDescriptionRequest));
     }
 }
 
-public record GeneratePizzaDescriptionRequest(string PizzaId, string PizzaName);
+public class GeneratePizzaDescriptionRequest
+{
+    public string PizzaId { get; set; } = "";
+    public string PizzaName { get; set; } = "";
+}
 
 public static class PizzaQueue
 {

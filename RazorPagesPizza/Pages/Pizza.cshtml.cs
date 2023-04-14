@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using RazorPagesPizza.Models;
-using RazorPagesPizza.Services;
+using RazorPagesPizza.Domain.Services;
 
 namespace RazorPagesPizza.Pages;
 
