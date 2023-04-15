@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
-using RazorPagesPizza.Models;
-using RazorPagesPizza.Domain.Services;
+using RazorPagesPizza.Interfaces.Services;
+using RazorPagesPizza.Interfaces.Models;
 
 namespace RazorPagesPizza.Pages;
 
 public class PizzaModel : PageModel
 {
-    private readonly ManagePizzaInventoryService _pizzaService;
+    private readonly IManagePizzaInventoryService _pizzaService;
 
     public List<Pizza> Pizzas { get; private set; } = new();
 
     [BindProperty]
     public Pizza NewPizza { get; set; } = new();
 
-    public PizzaModel(ManagePizzaInventoryService pizzaService)
+    public PizzaModel(IManagePizzaInventoryService pizzaService)
     {
         _pizzaService = pizzaService;
     }

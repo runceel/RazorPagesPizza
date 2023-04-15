@@ -9,13 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Interfaces"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Repositories", "RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj", "{59E05467-4AE5-4F02-8B48-D677325BA4A1}"
 EndProject
-<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Domain", "RazorPagesPizza.Services\RazorPagesPizza.Domain.csproj", "{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}"
-=======
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Services", "RazorPagesPizza.Services\RazorPagesPizza.Services.csproj", "{ECC90BF4-6163-4C30-BB91-25FAC7F72E34}"
->>>>>>> 04eff41e986823ee2e3c579ae5da74ac2cce44d6
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesPizza.Functions", "RazorPagesPizza.Functions\RazorPagesPizza.Functions.csproj", "{6571A709-DAC5-48DF-A3C7-B8A086AF6384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesPizza.Functions", "RazorPagesPizza.Functions\RazorPagesPizza.Functions.csproj", "{6571A709-DAC5-48DF-A3C7-B8A086AF6384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,6 +7,7 @@
     <UserSecretsId>da88c022-35f5-42c6-9d22-7e6e222d6edc</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RazorPagesPizza.Core\RazorPagesPizza.Interfaces.csproj" />
     <ProjectReference Include="..\RazorPagesPizza.Implements\RazorPagesPizza.Repositories.csproj" />
   </ItemGroup>
 

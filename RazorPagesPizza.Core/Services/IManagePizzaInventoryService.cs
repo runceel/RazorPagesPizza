@@ -1,6 +1,6 @@
-﻿using RazorPagesPizza.Models;
+﻿using RazorPagesPizza.Interfaces.Models;
 
-namespace RazorPagesPizza.Core.Services;
+namespace RazorPagesPizza.Interfaces.Services;
 public interface IManagePizzaInventoryService
 {
     ValueTask AddAsync(Pizza pizza);

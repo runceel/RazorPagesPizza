@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.Cosmos;
 using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
-using RazorPagesPizza.Models;
+using RazorPagesPizza.Interfaces.Models;
 using System.Net;
 
 namespace RazorPagesPizza.Repositories;

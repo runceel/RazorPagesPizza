@@ -1,6 +1,6 @@
-﻿using RazorPagesPizza.Core.Services;
-using RazorPagesPizza.Domain.Repositories;
-using RazorPagesPizza.Models;
+﻿using RazorPagesPizza.Domain.Repositories;
+using RazorPagesPizza.Interfaces.Models;
+using RazorPagesPizza.Interfaces.Services;
 
 namespace RazorPagesPizza.Domain.Services;
 public class ManagePizzaInventoryService : IManagePizzaInventoryService

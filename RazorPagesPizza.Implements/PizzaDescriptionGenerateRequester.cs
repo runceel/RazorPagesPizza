@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Queues;
 using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
-using RazorPagesPizza.Models;
+using RazorPagesPizza.Interfaces.Models;
 using RazorPagesPizza.Repositories;
 using System.Text.Json;
 

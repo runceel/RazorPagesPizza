@@ -8,7 +8,9 @@ using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Domain.Services;
 using RazorPagesPizza.Implements.Repositories;
+using RazorPagesPizza.Interfaces.Services;
 using RazorPagesPizza.Repositories;
+using RazorPagesPizza.Repositories.Mock;
 using RazorPagesPizza.Repositories.Options;
 
 namespace RazorPagesPizza.Functions;
@@ -24,11 +26,11 @@ public static class ServiceRegister
     public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
     {
         // options
-        services.Configure<OpenAIOptions>(configuration.GetSection(nameof(OpenAIOptions)));
+        //services.Configure<OpenAIOptions>(configuration.GetSection(nameof(OpenAIOptions)));
 
         // repositories
         services.AddSingleton<IPizzaRepository, PizzaRepository>();
-        services.AddSingleton<IPizzaDescriptionGenerator, PizzaDescriptionGenerator>();
+        services.AddSingleton<IPizzaDescriptionGenerator, MockPizzaDescriptionGenerator>();
 
         // services
         services.AddSingleton<IPizzaDescriptionGenerateService, PizzaDescriptionGenerateService>();

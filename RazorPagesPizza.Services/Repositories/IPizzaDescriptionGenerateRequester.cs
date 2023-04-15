@@ -1,4 +1,4 @@
-﻿using RazorPagesPizza.Models;
+﻿using RazorPagesPizza.Interfaces.Models;
 
 namespace RazorPagesPizza.Domain.Repositories;
 
