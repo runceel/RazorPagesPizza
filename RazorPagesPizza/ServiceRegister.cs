@@ -21,9 +21,6 @@ public static class ServiceRegister
 
     public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
     {
-        // options
-        services.Configure<OpenAIOptions>(configuration.GetSection(nameof(OpenAIOptions)));
-
         // services
         services.AddSingleton<IPizzaRepository, PizzaRepository>();
         services.AddSingleton<IPizzaDescriptionGenerateRequester, PizzaDescriptionGenerateRequester>();
