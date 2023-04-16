@@ -3,6 +3,7 @@ using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Interfaces.Models;
 using RazorPagesPizza.Repositories;
+using System.Text;
 using System.Text.Json;
 
 namespace RazorPagesPizza.Implements.Repositories;
@@ -26,10 +27,12 @@ public class PizzaDescriptionGenerateRequester : IPizzaDescriptionGenerateReques
 
         var queueClient = _queueServiceClient.GetQueueClient(PizzaQueue.Name);
         await queueClient.CreateIfNotExistsAsync();
-        await queueClient.SendMessageAsync(
-            JsonSerializer.Serialize(
-                new GeneratePizzaDescriptionRequest { PizzaId = pizza.Id, PizzaName = pizza.Name! }, 
-                SourceGenerationContext.Default.GeneratePizzaDescriptionRequest));
+        var json = new GeneratePizzaDescriptionRequest
+        {
+            PizzaId = pizza.Id,
+            PizzaName = pizza.Name,
+        }.ToJson();
+        await queueClient.SendMessageAsync(Convert.ToBase64String(Encoding.UTF8.GetBytes(json)));
     }
 }
 
@@ -37,6 +40,21 @@ public class GeneratePizzaDescriptionRequest
 {
     public string PizzaId { get; set; } = "";
     public string PizzaName { get; set; } = "";
+
+    public string ToJson() =>
+        JsonSerializer.Serialize(
+            this,
+            SourceGenerationContext.Default.GeneratePizzaDescriptionRequest);
+
+    public static GeneratePizzaDescriptionRequest? FromJson(string json) =>
+        JsonSerializer.Deserialize(
+            json,
+            SourceGenerationContext.Default.GeneratePizzaDescriptionRequest);
+
+    public static async ValueTask<GeneratePizzaDescriptionRequest?> FromJsonAsync(Stream utf8Stream) =>
+        await JsonSerializer.DeserializeAsync(
+            utf8Stream,
+            SourceGenerationContext.Default.GeneratePizzaDescriptionRequest);
 }
 
 public static class PizzaQueue

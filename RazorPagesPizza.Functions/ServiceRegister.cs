@@ -19,7 +19,8 @@ public static class ServiceRegister
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration _)
     {
-        services.AddSingleton<IManagePizzaInventoryService, ManagePizzaInventoryService>();
+        // services
+        services.AddSingleton<IPizzaDescriptionGenerateService, PizzaDescriptionGenerateService>();
         return services;
     }
 
@@ -31,9 +32,6 @@ public static class ServiceRegister
         // repositories
         services.AddSingleton<IPizzaRepository, PizzaRepository>();
         services.AddSingleton<IPizzaDescriptionGenerator, MockPizzaDescriptionGenerator>();
-
-        // services
-        services.AddSingleton<IPizzaDescriptionGenerateService, PizzaDescriptionGenerateService>();
 
         // Azure
         services.AddAzureClients(clientBuilder =>
