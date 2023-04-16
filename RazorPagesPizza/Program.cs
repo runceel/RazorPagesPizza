@@ -1,5 +1,4 @@
 ﻿using RazorPagesPizza;
-using RazorPagesPizza.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

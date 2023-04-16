@@ -7,8 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Domain.Services;
-using RazorPagesPizza.Implements.Repositories;
-using RazorPagesPizza.Interfaces.Services;
 using RazorPagesPizza.Repositories;
 using RazorPagesPizza.Repositories.Mock;
 using RazorPagesPizza.Repositories.Options;

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Azure.Cosmos;
-using RazorPagesPizza.Core.Services;
 using RazorPagesPizza.Domain.Repositories;
 using RazorPagesPizza.Interfaces.Models;
 using System.Net;
